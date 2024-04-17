@@ -1,11 +1,12 @@
 from selenium import webdriver
 from pages.basepage import BasePage
 import allure
-from locators.list_questions_locators import site, question_how_much_it_cost, answer_how_much_it_cost, \
+from locators.list_questions_locators import question_how_much_it_cost, answer_how_much_it_cost, \
     question_want_several_scooters, answer_want_several_scooters, question_how_rental_time, answer_how_rental_time, \
     question_order_today, answer_order_today, question_renew_or_return_scooter, answer_renew_or_return_scooter, \
     question_charging_together_scooter, answer_charging_together_scooter, question_cancel_order, answer_cancel_order, \
     question_about_moscow_ring_road, answer_about_moscow_ring_road
+from locators.url_base import site
 
 
 class TestListQuestions:

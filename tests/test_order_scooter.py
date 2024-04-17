@@ -1,13 +1,15 @@
 from selenium import webdriver
-from pages.order_scooter import BasePage, OrderPage
+from pages.order_scooter import OrderPage
+from pages.basepage import BasePage
 import pytest
 import allure
-from locators.order_scooter_locators import site, button_little_order, button_middle_order, button_big_order, \
+from locators.order_scooter_locators import button_little_order, button_middle_order, button_big_order, \
     string_name, string_surname, string_address, \
     string_metro, string_phone_number, button_next, chapter_about_rent, string_when_bring_scooter, rental_period, \
     period_one_day, color_scooter_black, string_comment_for_courier, button_yes, windows_success_order, logo_scooter, \
-    logo_yandex, scooter_title, dzen_button, date, comment_for_courier, \
-    button_see_status
+    logo_yandex, scooter_title, dzen_button, button_see_status
+from locators.url_base import site
+from locators.order_scooter_test_data import date, comment_for_courier
 
 
 class TestOrderScooter:
