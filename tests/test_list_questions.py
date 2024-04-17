@@ -1,4 +1,3 @@
-from selenium import webdriver
 from pages.basepage import BasePage
 import allure
 from locators.list_questions_locators import question_how_much_it_cost, answer_how_much_it_cost, \
@@ -12,13 +11,9 @@ from locators.url_base import site
 class TestListQuestions:
     driver = None
 
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
-
     @allure.title('Проверка ответа на вопрос: Сколько это стоит? И как оплатить?')
-    def test_question_how_much_it_cost(self):
-        home_page = BasePage(self.driver)
+    def test_question_how_much_it_cost(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_how_much_it_cost)
         home_page.wait_element_clickable(question_how_much_it_cost)
@@ -28,8 +23,8 @@ class TestListQuestions:
         assert answer == 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'
 
     @allure.title('Проверка ответа на вопрос: Хочу сразу несколько самокатов! Так можно?')
-    def test_question_want_several_scooters(self):
-        home_page = BasePage(self.driver)
+    def test_question_want_several_scooters(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_want_several_scooters)
         home_page.wait_element_clickable(question_want_several_scooters)
@@ -40,8 +35,8 @@ class TestListQuestions:
                           'можете просто сделать несколько заказов — один за другим.')
 
     @allure.title('Проверка ответа на вопрос: Как рассчитывается время аренды?')
-    def test_question_how_rental_time(self):
-        home_page = BasePage(self.driver)
+    def test_question_how_rental_time(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_how_rental_time)
         home_page.wait_element_clickable(question_how_rental_time)
@@ -53,8 +48,8 @@ class TestListQuestions:
                           'самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.')
 
     @allure.title('Проверка ответа на вопрос: Можно ли заказать самокат прямо на сегодня?')
-    def test_question_order_today(self):
-        home_page = BasePage(self.driver)
+    def test_question_order_today(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_order_today)
         home_page.wait_element_clickable(question_order_today)
@@ -64,8 +59,8 @@ class TestListQuestions:
         assert answer == 'Только начиная с завтрашнего дня. Но скоро станем расторопнее.'
 
     @allure.title('Проверка ответа на вопрос: Можно ли продлить заказ или вернуть самокат раньше?')
-    def test_question_renew_or_return_scooter(self):
-        home_page = BasePage(self.driver)
+    def test_question_renew_or_return_scooter(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_renew_or_return_scooter)
         home_page.wait_element_clickable(question_renew_or_return_scooter)
@@ -76,8 +71,8 @@ class TestListQuestions:
                           'номеру 1010.')
 
     @allure.title('Проверка ответа на вопрос: Вы привозите зарядку вместе с самокатом?')
-    def test_question_charging_with_scooter(self):
-        home_page = BasePage(self.driver)
+    def test_question_charging_with_scooter(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_charging_together_scooter)
         home_page.wait_element_clickable(question_charging_together_scooter)
@@ -88,8 +83,8 @@ class TestListQuestions:
                           'кататься без передышек и во сне. Зарядка не понадобится.')
 
     @allure.title('Проверка ответа на вопрос: Можно ли отменить заказ?')
-    def test_question_cancel_order(self):
-        home_page = BasePage(self.driver)
+    def test_question_cancel_order(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_cancel_order)
         home_page.wait_element_clickable(question_cancel_order)
@@ -100,8 +95,8 @@ class TestListQuestions:
                           'же свои.')
 
     @allure.title('Проверка ответа на вопрос: Я жизу за МКАДом, привезёте?')
-    def test_question_about_moscow_ring_road(self):
-        home_page = BasePage(self.driver)
+    def test_question_about_moscow_ring_road(self, start_and_stop_browser):
+        home_page = BasePage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.scroll_element(question_about_moscow_ring_road)
         home_page.wait_element_clickable(question_about_moscow_ring_road)
@@ -109,7 +104,3 @@ class TestListQuestions:
         home_page.wait_element_located(answer_about_moscow_ring_road)
         answer = home_page.get_text_of_element(answer_about_moscow_ring_road)
         assert answer == 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
-
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
