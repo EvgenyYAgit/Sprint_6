@@ -19,21 +19,24 @@ class TestOrderScooter:
         base_page = BasePage(start_and_stop_browser)
         order_page = OrderPage(start_and_stop_browser)
         base_page.get_site(site)
-        base_page.scroll_element(locators.order_scooter_locators.button_big_order)
-        base_page.wait_element_clickable(locators.order_scooter_locators.button_big_order)
-        base_page.click_on_section(locators.order_scooter_locators.button_big_order)
-        base_page.filling_string(locators.order_scooter_locators.string_name, name)
-        base_page.filling_string(locators.order_scooter_locators.string_surname, surname)
-        base_page.filling_string(locators.order_scooter_locators.string_address, address)
-        order_page.selection_metro(locators.order_scooter_locators.string_metro, metro)
-        base_page.filling_string(locators.order_scooter_locators.string_phone_number, phone_number)
-        base_page.click_on_section(locators.order_scooter_locators.button_next)
-        base_page.wait_element_located(locators.order_scooter_locators.chapter_about_rent)
-        order_page.selection_date(locators.order_scooter_locators.string_when_bring_scooter, date)
-        base_page.click_on_section(locators.order_scooter_locators.rental_period)
-        base_page.click_on_section(locators.order_scooter_locators.period_one_day)
-        base_page.click_on_section(locators.order_scooter_locators.color_scooter_black)
-        base_page.filling_string(locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
+
+        base_page.search_element_and_click(locators.order_scooter_locators.button_big_order)
+
+        order_page.filling_who_is_scooter_for(locators.order_scooter_locators.string_name, name,
+                                              locators.order_scooter_locators.string_surname, surname,
+                                              locators.order_scooter_locators.string_address, address,
+                                              locators.order_scooter_locators.string_phone_number, phone_number,
+                                              locators.order_scooter_locators.string_metro, metro)
+
+        order_page.click_and_wait_element(locators.order_scooter_locators.button_next,
+                                          locators.order_scooter_locators.chapter_about_rent)
+
+        order_page.filling_about_rent(locators.order_scooter_locators.rental_period,
+                                      locators.order_scooter_locators.period_one_day,
+                                      locators.order_scooter_locators.color_scooter_black,
+                                      locators.order_scooter_locators.string_when_bring_scooter, date,
+                                      locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
+
         base_page.click_on_section(locators.order_scooter_locators.button_middle_order)
         base_page.click_on_section(locators.order_scooter_locators.button_yes)
 
@@ -47,27 +50,33 @@ class TestOrderScooter:
         base_page = BasePage(start_and_stop_browser)
         order_page = OrderPage(start_and_stop_browser)
         base_page.get_site(site)
-        base_page.wait_element_clickable(locators.order_scooter_locators.button_little_order)
-        base_page.click_on_section(locators.order_scooter_locators.button_little_order)
-        base_page.filling_string(locators.order_scooter_locators.string_name, name)
-        base_page.filling_string(locators.order_scooter_locators.string_surname, surname)
-        base_page.filling_string(locators.order_scooter_locators.string_address, address)
-        order_page.selection_metro(locators.order_scooter_locators.string_metro, metro)
-        base_page.filling_string(locators.order_scooter_locators.string_phone_number, phone_number)
-        base_page.click_on_section(locators.order_scooter_locators.button_next)
-        base_page.wait_element_located(locators.order_scooter_locators.chapter_about_rent)
-        order_page.selection_date(locators.order_scooter_locators.string_when_bring_scooter, date)
-        base_page.click_on_section(locators.order_scooter_locators.rental_period)
-        base_page.click_on_section(locators.order_scooter_locators.period_one_day)
-        base_page.click_on_section(locators.order_scooter_locators.color_scooter_black)
-        base_page.filling_string(locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
-        base_page.click_on_section(locators.order_scooter_locators.button_middle_order)
-        base_page.click_on_section(locators.order_scooter_locators.button_yes)
-        base_page.click_on_section(locators.order_scooter_locators.button_see_status)
+
+        order_page.wait_element_and_click(locators.order_scooter_locators.button_little_order)
+
+        order_page.filling_who_is_scooter_for(locators.order_scooter_locators.string_name, name,
+                                              locators.order_scooter_locators.string_surname, surname,
+                                              locators.order_scooter_locators.string_address, address,
+                                              locators.order_scooter_locators.string_phone_number, phone_number,
+                                              locators.order_scooter_locators.string_metro, metro)
+
+        order_page.click_and_wait_element(locators.order_scooter_locators.button_next,
+                                          locators.order_scooter_locators.chapter_about_rent)
+
+        order_page.filling_about_rent(locators.order_scooter_locators.rental_period,
+                                      locators.order_scooter_locators.period_one_day,
+                                      locators.order_scooter_locators.color_scooter_black,
+                                      locators.order_scooter_locators.string_when_bring_scooter, date,
+                                      locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
+
+        order_page.valid_purchase(locators.order_scooter_locators.button_middle_order,
+                                  locators.order_scooter_locators.button_yes,
+                                  locators.order_scooter_locators.button_see_status)
+
         base_page.click_on_section(locators.order_scooter_locators.logo_scooter)
         base_page.wait_element_located(locators.order_scooter_locators.scooter_title)
 
-        assert 'на пару дней' and 'Самокат' in base_page.get_text_of_element(locators.order_scooter_locators.scooter_title)
+        assert 'на пару дней' and 'Самокат' in base_page.get_text_of_element(
+            locators.order_scooter_locators.scooter_title)
 
     @allure.title('Проверка позитивного сценария с двумя наборами данных. Точка входа кнопка "Заказать" сверху.')
     @pytest.mark.parametrize('name, surname, metro, phone_number, address',
@@ -77,26 +86,27 @@ class TestOrderScooter:
         base_page = BasePage(start_and_stop_browser)
         order_page = OrderPage(start_and_stop_browser)
         base_page.get_site(site)
-        base_page.wait_element_clickable(locators.order_scooter_locators.button_little_order)
-        base_page.click_on_section(locators.order_scooter_locators.button_little_order)
-        base_page.filling_string(locators.order_scooter_locators.string_name, name)
-        base_page.filling_string(locators.order_scooter_locators.string_surname, surname)
-        base_page.filling_string(locators.order_scooter_locators.string_address, address)
-        order_page.selection_metro(locators.order_scooter_locators.string_metro, metro)
-        base_page.filling_string(locators.order_scooter_locators.string_phone_number, phone_number)
-        base_page.click_on_section(locators.order_scooter_locators.button_next)
-        base_page.wait_element_located(locators.order_scooter_locators.chapter_about_rent)
-        order_page.selection_date(locators.order_scooter_locators.string_when_bring_scooter, date)
-        base_page.click_on_section(locators.order_scooter_locators.rental_period)
-        base_page.click_on_section(locators.order_scooter_locators.period_one_day)
-        base_page.click_on_section(locators.order_scooter_locators.color_scooter_black)
-        base_page.filling_string(locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
-        base_page.click_on_section(locators.order_scooter_locators.button_middle_order)
-        base_page.click_on_section(locators.order_scooter_locators.button_yes)
-        base_page.click_on_section(locators.order_scooter_locators.button_see_status)
-        base_page.click_on_section(locators.order_scooter_locators.logo_yandex)
-        order_page.close_tab()
-        order_page.switch_new_tab()
-        base_page.wait_element_clickable(locators.order_scooter_locators.dzen_button)
+
+        order_page.wait_element_and_click(locators.order_scooter_locators.button_little_order)
+
+        order_page.filling_who_is_scooter_for(locators.order_scooter_locators.string_name, name,
+                                              locators.order_scooter_locators.string_surname, surname,
+                                              locators.order_scooter_locators.string_address, address,
+                                              locators.order_scooter_locators.string_phone_number, phone_number,
+                                              locators.order_scooter_locators.string_metro, metro)
+
+        order_page.click_and_wait_element(locators.order_scooter_locators.button_next,
+                                          locators.order_scooter_locators.chapter_about_rent)
+
+        order_page.filling_about_rent(locators.order_scooter_locators.rental_period,
+                                      locators.order_scooter_locators.period_one_day,
+                                      locators.order_scooter_locators.color_scooter_black,
+                                      locators.order_scooter_locators.string_when_bring_scooter, date,
+                                      locators.order_scooter_locators.string_comment_for_courier, comment_for_courier)
+
+        order_page.valid_purchase(locators.order_scooter_locators.button_middle_order,
+                                  locators.order_scooter_locators.button_yes,
+                                  locators.order_scooter_locators.button_see_status)
+        order_page.dzen(locators.order_scooter_locators.logo_yandex, locators.order_scooter_locators.dzen_button)
 
         assert 'Найти' == base_page.get_text_of_element(locators.order_scooter_locators.dzen_button)

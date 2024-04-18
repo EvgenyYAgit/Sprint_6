@@ -39,3 +39,11 @@ class BasePage:
     def get_text_of_element(self, text_of_element):
         text = self.driver.find_element(*text_of_element).text
         return text
+
+    # прокрутка до элемента на странице с нажатием
+    def search_element_and_click(self, element):
+        element_scroll = self.driver.find_element(*element)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element_scroll)
+        WebDriverWait(self.driver, 30).until(
+            expected_conditions.element_to_be_clickable(element))
+        self.driver.find_element(*element).click()
