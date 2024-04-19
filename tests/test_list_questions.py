@@ -1,4 +1,4 @@
-from pages.basepage import BasePage
+from pages.order_scooter import OrderPage
 import allure
 import locators.list_questions_locators
 from locators.url_base import site
@@ -9,7 +9,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Сколько это стоит? И как оплатить?')
     def test_question_how_much_it_cost(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_how_much_it_cost)
         home_page.wait_element_located(locators.list_questions_locators.answer_how_much_it_cost)
@@ -18,7 +18,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Хочу сразу несколько самокатов! Так можно?')
     def test_question_want_several_scooters(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_want_several_scooters)
         home_page.wait_element_located(locators.list_questions_locators.answer_want_several_scooters)
@@ -28,7 +28,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Как рассчитывается время аренды?')
     def test_question_how_rental_time(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_how_rental_time)
         home_page.wait_element_located(locators.list_questions_locators.answer_how_rental_time)
@@ -39,7 +39,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Можно ли заказать самокат прямо на сегодня?')
     def test_question_order_today(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_order_today)
         home_page.wait_element_located(locators.list_questions_locators.answer_order_today)
@@ -48,7 +48,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Можно ли продлить заказ или вернуть самокат раньше?')
     def test_question_renew_or_return_scooter(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_renew_or_return_scooter)
         home_page.wait_element_located(locators.list_questions_locators.answer_renew_or_return_scooter)
@@ -58,7 +58,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Вы привозите зарядку вместе с самокатом?')
     def test_question_charging_with_scooter(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_charging_together_scooter)
         home_page.wait_element_located(locators.list_questions_locators.answer_charging_together_scooter)
@@ -68,7 +68,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Можно ли отменить заказ?')
     def test_question_cancel_order(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_cancel_order)
         home_page.wait_element_located(locators.list_questions_locators.answer_cancel_order)
@@ -78,7 +78,7 @@ class TestListQuestions:
 
     @allure.title('Проверка ответа на вопрос: Я жизу за МКАДом, привезёте?')
     def test_question_about_moscow_ring_road(self, start_and_stop_browser):
-        home_page = BasePage(start_and_stop_browser)
+        home_page = OrderPage(start_and_stop_browser)
         home_page.get_site(site)
         home_page.search_element_and_click(locators.list_questions_locators.question_about_moscow_ring_road)
         home_page.wait_element_located(locators.list_questions_locators.answer_about_moscow_ring_road)

@@ -1,13 +1,11 @@
 from selenium.webdriver.common.keys import Keys
 import time
+from pages.basepage import BasePage
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class OrderPage:
-
-    def __init__(self, driver):
-        self.driver = driver
+class OrderPage(BasePage):
 
     # выбор цвета скутера
     def checkbox_color_scooter(self, color_scooter):
